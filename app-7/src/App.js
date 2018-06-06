@@ -1,8 +1,7 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import NewTask from './NewTask';
-import List from './List';
+import React, { Component } from "react";
+import "./App.css";
+import List from "./List";
+import NewTask from "./NewTask";
 
 class App extends Component {
   constructor() {
@@ -12,19 +11,23 @@ class App extends Component {
       list: []
     };
 
-    this.handleAddTask = this.handleAddTask.bind( this );
+    this.handleAddTask = this.handleAddTask.bind(this);
   }
 
-  handleAddTask( task ) {
-    this.setState({ list: [ ...this.state.list, task ] });
+  handleInputChange(value) {
+    this.setState({ input: value });
+  }
+
+  handleAddTask(task) {
+    this.setState({ list: [...this.state.list, task] });
   }
 
   render() {
     return (
       <div className="App">
-        <h1>My to-do list:</h1>
-        <NewTask add={ this.handleAddTask } />
-        <List tasks={ this.state.list } />
+        <h2>My Todo List:</h2>
+        <NewTask add={this.handleAddTask} />
+        <List tasks={this.state.list} />
       </div>
     );
   }
